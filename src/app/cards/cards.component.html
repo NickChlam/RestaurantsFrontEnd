@@ -1,0 +1,74 @@
+
+
+
+<div class="row row-cols-1 row-cols-md-4" >
+    
+    <div *ngIf="restaurants == null && loaded == true " class="alert alert-dark alert-dismissible fade show" role="alert">
+        <strong>No Results Found</strong>
+      </div>
+        <div class="col mb-4" *ngFor="let item of restaurants;let i = index">
+            
+          <div class="card" >
+            <!--  src="{{item.imageUrl}}"-->
+            
+          <!-- <img  [src]="'../../assets/' + i%10 + '.jpg'" class="card-img-top" alt="..."> -->
+          <img  [src]="createImg(item.BusinessName)" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.BusinessName}}</h5>
+              <p class="card-subtitle text-muted" >{{item.Category}} • <a *ngIf="item.Menu != 'NONE'" [href]="item.Menu" target="new">see menu</a> </p>
+              <p></p>
+              <p class="list bold">Address: <span class="right ">{{item.Address}}</span></p>
+              <p class="list bold">Phone: <span class="right"><a [href]="'tel: ' + item.Phone"> {{item.Phone}}</a></span></p>
+              <p class="list bold">Order: <span class="right ">{{item.HowToOrder}}</span></p>
+            <p class="list bold">Get it: <span class="right">{{item.HowToGetIt}}</span></p>
+            <p class="list bold">Payment: <span class="right">{{item.PaymentsAccepted}}</span></p>
+              
+
+              <p></p>
+              
+              <p class="card-text"> </p>
+           
+                <p *ngIf="item.OpenClosed != '' " class="card-text">
+                  
+                  <span [ngClass]="item.OpenClosed == 'Open' ? 'green': 'red' "> {{item.OpenClosed}}  </span>
+                  <span class="right" > {{item.CurrentHours}} </span>
+         
+              </p>
+              <p *ngIf="item.OpenClosed == '' " class="card-text">
+                  
+                  <span class="uknown"> Uknown  </span>
+                  <span class="right" >Hours - 10am - 10am </span>
+         
+              </p>
+              <p></p>
+            </div>
+              <div class="card-footer">
+            
+                    <div class="row">
+                    
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <img class='icon' src="../../assets/facebook.png" alt="">
+                        <img class='icon' src="../../assets/instagram.png" alt="">
+                        <img class='icon' src="../../assets/twitter.png" alt="">
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-sm-4"></div>
+    <div class="col-sm-4 ">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a (click)="prev()" class="page-link" href="#"> PREV </a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a (click)="next()" class="page-link" href="#"> NEXT </a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-4"></div>
+</div> -->
