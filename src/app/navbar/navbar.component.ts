@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     this.dataService.GetSearch(str).subscribe( data => {
       this.searchData.emit(data);
     }, err => {
-      // TODO: Handle error
+      console.log(err.status)
     });
   }
 

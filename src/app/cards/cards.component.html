@@ -3,7 +3,7 @@
 
 <div class="row row-cols-1 row-cols-md-4" >
     
-    <div *ngIf="restaurants == null && loaded == true " class="alert alert-dark alert-dismissible fade show" role="alert">
+    <div *ngIf="restaurants == null && loaded == true " class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>No Results Found</strong>
       </div>
         <div class="col mb-4" *ngFor="let item of restaurants;let i = index">
