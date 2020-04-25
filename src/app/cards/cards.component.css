@@ -1,9 +1,12 @@
 
-
+.hidden {
+    visibility: hidden;
+}
 img.card-img-top {
+    
     height: 165px!important;
     width: auto;
-    object-fit:    cover;
+    object-fit: cover;
     object-position: center center;
     
 }
@@ -62,18 +65,18 @@ p.list{
     transform: scale(1.01, 1.01);
     -webkit-transform: scale(1.01, 1.01);
     transform: scale(1.01, 1.01);
-    border-radius: 25px;
+    border-radius: 5px 5px 25px 25px;
     
   }
   
   .card:hover::after {
       opacity: 1;
-      border-radius: 25px;
+      border-radius: 5px 5px 25px 25px;
   }
 
   .card-footer:hover {
     transform: scale(1.01, 1.01);
-    border-radius: 0 0 25px 25px;
+    border-radius: 5px 5px 25px 25px;
     
   }
 

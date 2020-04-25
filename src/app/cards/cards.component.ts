@@ -7,7 +7,7 @@ import { DataService } from '../_services/data.service';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-
+  newName: string;
   loaded: boolean = false;
   page: number = 1;
   @Input() restaurants: any;
@@ -46,11 +46,15 @@ export class CardsComponent implements OnInit {
     }
 
     createImg(name: string){
-      let newName = name.replace(/ /g, "");
-      newName = '../../assets/test/' + newName + '.jpg';
-      return newName;
+      this.newName = name.replace(/ /g, "");
+      this.newName = '../../assets/test2/' + this.newName + '.jpg';
+      return this.newName;
 
 
+    }
+
+    setDefault() {
+      this.newName = '../../assets/test2/default-img';
     }
 
 }

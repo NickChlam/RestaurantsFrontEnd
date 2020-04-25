@@ -9,13 +9,14 @@
         <div class="col mb-4" *ngFor="let item of restaurants;let i = index">
             
           <div class="card" >
-            <!--  src="{{item.imageUrl}}"-->
             
           <!-- <img  [src]="'../../assets/' + i%10 + '.jpg'" class="card-img-top" alt="..."> -->
-          <img  [src]="createImg(item.BusinessName)" class="card-img-top" alt="...">
+          <img  [src]="createImg(item.BusinessName)" onerror="this.src='../../assets/test2/default.jpg';" class="card-img-top" alt="{{item.BusinessName}}">
+          <!-- <img src="{{item.imageUrl}}" alt=""> -->
             <div class="card-body">
-              <h5 class="card-title">{{item.BusinessName}}</h5>
-              <p class="card-subtitle text-muted" >{{item.Category}} • <a *ngIf="item.Menu != 'NONE'" [href]="item.Menu" target="new">see menu</a> </p>
+              <h5 class="card-title">{{item.BusinessName}} • <span class="small">{{item.Town}}</span></h5>
+              <p class="card-subtitle text-muted" >{{item.Labels}} </p>
+                <p>   <a *ngIf="item.Menu != '' " [href]="item.Menu" target="new">see menu</a> </p>
               <p></p>
               <p class="list bold">Address: <span class="right ">{{item.Address}}</span></p>
               <p class="list bold">Phone: <span class="right"><a [href]="'tel: ' + item.Phone"> {{item.Phone}}</a></span></p>
@@ -47,9 +48,9 @@
                     <div class="row">
                     
                     <div class="col-sm-12 d-flex justify-content-center">
-                        <img class='icon' src="../../assets/facebook.png" alt="">
-                        <img class='icon' src="../../assets/instagram.png" alt="">
-                        <img class='icon' src="../../assets/twitter.png" alt="">
+                        <a href="{{item.Facebook}}" [className]="item.Facebook == '' ? 'hidden' : 'show' "> <img class='icon' src="../../assets/facebook.png" alt="facebook"></a>
+                        <a href="{{item.Instagram}}" *ngIf="item.Instagram !='' "><img class='icon' src="../../assets/instagram.png" alt="instagram"></a>
+                        <a href="{{item.Twitter}}" *ngIf="item.Twitter !='' "><img class='icon' src="../../assets/twitter.png" alt="twitter"></a>
                     </div>
                 </div>
               </div>
